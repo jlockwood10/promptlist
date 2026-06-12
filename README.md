@@ -8,7 +8,8 @@ Wordlists for discovering AI-related API endpoints with `ffuf`, `gobuster`, `fer
 
 | File | Lines | Use when |
 |---|---|---|
-| `ai-everything.txt` | 7,377 | **BOOM.** Every full path + every prefix + every single segment, deduped. Maximum coverage. |
+| `ai-megafuzz.txt` | 379,291 | **BIG BOOM.** Cross-product: every common AI prefix (`v1`, `api/v2`, `openai/v1`, `inference/v1`, `llm/v1`, …) × every documented tail. Generates plausible combos that aren't in any single vendor's docs. 12MB. |
+| `ai-everything.txt` | 7,377 | Every documented full path + every prefix + every single segment, deduped. Observed paths only — no cross-product. |
 | `ai-endpoints-full.txt` | 6,322 | Full paths plus every intermediate prefix (`v1`, `v1/chat`, `v1/chat/completions`, etc.). |
 | `ai-endpoints.txt` | 5,498 | Full endpoint paths only. No leading `/`. Path params as `{name}`. |
 | `ai-prefixes.txt` | 6,282 | Every cumulative prefix of every endpoint — for finding API roots, version paths, and parent collections. |
