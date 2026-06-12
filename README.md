@@ -8,7 +8,8 @@ Wordlists for discovering AI-related API endpoints with `ffuf`, `gobuster`, `fer
 
 | File | Lines | Use when |
 |---|---|---|
-| `ai-endpoints-full.txt` | 6,322 | **Recommended.** Full paths **plus** every intermediate prefix (`v1`, `v1/chat`, `v1/chat/completions`, etc.). |
+| `ai-everything.txt` | 7,377 | **BOOM.** Every full path + every prefix + every single segment, deduped. Maximum coverage. |
+| `ai-endpoints-full.txt` | 6,322 | Full paths plus every intermediate prefix (`v1`, `v1/chat`, `v1/chat/completions`, etc.). |
 | `ai-endpoints.txt` | 5,498 | Full endpoint paths only. No leading `/`. Path params as `{name}`. |
 | `ai-prefixes.txt` | 6,282 | Every cumulative prefix of every endpoint — for finding API roots, version paths, and parent collections. |
 | `ai-endpoints-with-slash.txt` | 5,498 | Same as `ai-endpoints.txt` but each prefixed with `/`. |

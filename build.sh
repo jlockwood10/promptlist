@@ -67,10 +67,20 @@ cat "$OUT/ai-endpoints.txt" "$OUT/ai-prefixes.txt" \
 # 6) ai-endpoints-with-slash.txt — main list with leading "/" preserved.
 sed 's|^|/|' "$OUT/ai-endpoints.txt" > "$OUT/ai-endpoints-with-slash.txt"
 
+# 7) ai-everything.txt — BOOM. Every full path, every prefix, every single segment.
+#    The kitchen-sink-on-fire list. Maximum coverage, maximum noise.
+cat "$OUT/ai-endpoints.txt" \
+    "$OUT/ai-prefixes.txt" \
+    "$OUT/ai-segments.txt" \
+  | awk '!seen[$0]++' \
+  | sort \
+  > "$OUT/ai-everything.txt"
+
 echo "Built:"
 wc -l "$OUT/ai-endpoints.txt" \
       "$OUT/ai-endpoints-no-params.txt" \
       "$OUT/ai-prefixes.txt" \
       "$OUT/ai-endpoints-full.txt" \
       "$OUT/ai-segments.txt" \
-      "$OUT/ai-endpoints-with-slash.txt"
+      "$OUT/ai-endpoints-with-slash.txt" \
+      "$OUT/ai-everything.txt"
